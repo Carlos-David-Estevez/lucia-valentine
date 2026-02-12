@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucía ❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #ffe6f0, #ffccd9);
+            overflow-x: hidden;
+        }
+
+        h1 {
+            color: #ff3366;
+            font-size: 32px;
+            margin-top: 30px;
+        }
+
+        h2 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            position: relative;
+            height: 150px;
+        }
+
+        button {
+            padding: 14px 26px;
+            font-size: 18px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #yes {
+            background-color: #ff4d88;
+            color: white;
+            margin-right: 15px;
+        }
+
+        #no {
+            background-color: gray;
+            color: white;
+            position: absolute;
+        }
+
+        #mensajeFinal {
+            display: none;
+            margin-top: 30px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+            padding: 20px;
+            border-radius: 18px;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+            animation: aparecer 1s ease forwards;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .heart {
+            position: fixed;
+            font-size: 22px;
+            animation: float 4s linear infinite;
+        }
+
+        @keyframes float {
+            from { transform: translateY(100vh); opacity: 1; }
+            to { transform: translateY(-10vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lucía 💖</h1>
+<h2>¿Quieres ser mi Valentine este año? 💘</h2>
+
+<div class="buttons">
+    <button id="yes" onclick="celebrate()">Sí 🩵</button>
+    <button id="no">No 😢</button>
+</div>
+
+<div id="mensajeFinal">
+<p>
+Bueno mi vida, sabía que ibas a decir que si jajaajaja.<br><br>
+La vrd amo pasar este día contigo, bueno este y todos. 
+Eres lo más importante en mi vida, me gustaría pasar toda mi vida a tu lado y darte lo que para mi es lo más importante que es amor y tiempo como tu lo haces conmigo. 
+Este año sin duda te conozco mucho mejor y se al 10000% que es contigo con quien quiero pasar cada año San Valentin haciendo mil planes. Porque si tengo pensado mil citas para los proximos san valentines asi que siempre vas a tener que decir que si. 
+<br><br>
+<b>TE AMO PRINCESITA🩵🩵🩵🩵</b>
+</p>
+</div>
+
+<script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+
+    let scale = 1;
+
+    function moveButton() {
+        const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+        const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+
+        // Hacer más grande el botón SÍ
+        scale += 0.2;
+        yesBtn.style.transform = "scale(" + scale + ")";
+    }
+
+    noBtn.addEventListener("touchstart", moveButton);
+    noBtn.addEventListener("mouseover", moveButton);
+
+    function celebrate() {
+        document.getElementById("mensajeFinal").style.display = "block";
+
+        for (let i = 0; i < 35; i++) {
+            let heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "🩵";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+    }
+</script>
+
+</body>
+</html>
